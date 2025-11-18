@@ -44,3 +44,24 @@ export const getArticlesByTag = async (slug: string) => {
     throw error;
   }
 };
+
+export const getArticlesBySearch = async (slug: string) => {
+  try {
+    const res = await axios.get("http://localhost:1337/api/articles", {
+      params: {
+        filters: {
+          title: {
+            $containsi: slug,
+          },
+        },
+        populate: "*",
+      },
+    });
+
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
