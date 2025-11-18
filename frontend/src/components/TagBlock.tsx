@@ -9,10 +9,11 @@ const TagBlock = ({ blog }: { blog: any }) => {
 
     return `${monthShort} ${day}`;
   }
+  
   return (
-    <div className="w-4/5">
+    <div className="w-4/5 border-b-1 border-gray-300 md:border-0">
       <img
-        src={`http://localhost:1337${blog?.cover?.formats?.large?.url}`}
+        src={`http://localhost:1337${blog?.cover?.formats?.large?.url || blog?.cover?.formats?.medium?.url}`}
         alt="..."
         className="w-full"
       />

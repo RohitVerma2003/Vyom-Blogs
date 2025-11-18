@@ -29,7 +29,7 @@ const Search = () => {
       </p>
       {articles.length > 0 ? (
         <div className="w-full flex justify-center">
-          <div className="w-4/5 grid grid-cols-2 justify-center">
+          <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 justify-center">
             {articles?.map((article) => (
               <div className="my-6 flex justify-center" key={article?.id}>
                 <TagBlock blog={article} />

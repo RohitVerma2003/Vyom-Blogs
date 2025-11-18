@@ -23,7 +23,7 @@ const BlogList = () => {
   if(!blogs) return <Loader/>
 
   return (
-    <div className="w-5/7 my-10">
+    <div className="px-5 md:w-5/7 md:my-10">
       {blogs.map((blog) => (
         <div className="my-6" key={blog?.id}>
           <Blog blog={blog} />

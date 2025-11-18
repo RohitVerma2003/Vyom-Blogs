@@ -26,9 +26,9 @@ const Blog = ({ blog }: { blog: any }) => {
           </div>
         )}
         <Link to={`/articles/${blog?.documentId}`}>
-          <p className="text-2xl font-bold mb-1">{blog.title}</p>
+          <p className="text-xl md:text-2xl font-bold mb-1">{blog.title}</p>
         </Link>
-        <p className="text-gray-600">{blog.description}</p>
+        <p className="text-gray-600 text-sm md:text-base">{blog.description}</p>
         <div className="mt-3">
           <span className="text-sm font-light text-gray-500">
             {formatDate(blog.updatedAt)}
@@ -36,7 +36,7 @@ const Blog = ({ blog }: { blog: any }) => {
         </div>
       </div>
       {blog.cover && (
-        <div className="max-w-40 border-1 border-gray-200">
+        <div className="max-w-20 md:max-w-40 border-1 border-gray-200">
           <img
             src={`http://localhost:1337${blog?.cover?.formats?.thumbnail?.url}`}
             alt="..."

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Author from "./pages/Author";
 import BlogByTag from "./pages/BlogByTag";
 import Search from "./pages/Search";
+import RecentSearch from "./pages/RecentSearch";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/authors/:id" element={<Author />} />
         <Route path="/tags/:slug" element={<BlogByTag />} />
         <Route path="/search/:slug" element={<Search/>}/>
+        <Route path="/search" element={<RecentSearch/>}/>
       </Routes>
     </div>
   );

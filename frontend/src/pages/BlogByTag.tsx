@@ -18,14 +18,14 @@ const BlogByTag = () => {
     fetchData();
   }, []);
 
-  if(!articles) return <Loader/>
+  if (!articles) return <Loader />;
   return (
     <div className="w-full">
       <p className="text-center font-bold text-4xl my-5">
         {slug?.toLocaleUpperCase()}
       </p>
       <div className="w-full flex justify-center">
-        <div className="w-4/5 grid grid-cols-2 justify-center">
+        <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 justify-center">
           {articles?.map((article) => (
             <div className="my-6 flex justify-center" key={article?.id}>
               <TagBlock blog={article} />

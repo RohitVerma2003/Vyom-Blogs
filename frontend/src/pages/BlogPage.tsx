@@ -35,7 +35,7 @@ const BlogPage = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="w-1/2">
+      <div className="w-full px-5 md:px-0 md:w-1/2">
         <header className="mb-6 pt-12 pb-4 border-b-1 border-gray-300">
           <p className="text-4xl font-bold">{article.title}</p>
           <p className="text-gray-500 text-xl leading-6 my-3">
@@ -62,7 +62,7 @@ const BlogPage = () => {
           {article?.cover?.url && (
             <img
               src={`http://localhost:1337${article?.cover?.url}`}
-              className="max-w-150 mb-8 mx-auto"
+              className="max-w-80 md:max-w-150 mb-8 mx-auto"
             />
           )}
 
