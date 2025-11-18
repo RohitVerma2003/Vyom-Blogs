@@ -78,9 +78,12 @@ const BlogPage = () => {
             }
           })}
           <div className="flex gap-3 flex-wrap mb-10">
-            <button className="text-sm font-light bg-gray-200 p-2 px-3 rounded-full cursor-pointer">
+            <Link
+              to={`/tags/${article?.category?.slug}`}
+              className="text-sm font-light bg-gray-200 p-2 px-3 rounded-full cursor-pointer"
+            >
               {article?.category?.name}
-            </button>
+            </Link>
           </div>
           <div className="my-4 flex items-center gap-4">
             <img

@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <div className="w-full h-16 border-b-1 border-gray-200 flex justify-between items-center p-4 px-8 sticky top-0 bg-white z-10">
       <div className="flex justify-center items-center gap-5">
-        <div className="text-2xl">VyomBlog</div>
+        <Link to={"/"} className="text-2xl">VyomBlog</Link>
         <form
           className="flex justify-center items-center gap-3 hidden md:flex"
           onSubmit={handleSubmit}
