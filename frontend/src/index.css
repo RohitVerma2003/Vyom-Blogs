@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: "Outfit";
+    src: url('./assets/Outfit.ttf');
+}
+
+*{
+    font-family: "Outfit";
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
