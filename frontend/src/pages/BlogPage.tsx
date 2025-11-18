@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getPartcularArticle } from "../services/articles";
 import ReactMarkDown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Loader from "../components/Loader";
 
 const BlogPage = () => {
   const [article, setArticle] = useState<any>();
@@ -30,7 +31,7 @@ const BlogPage = () => {
 
   console.log(article);
 
-  if (!article) return <div className="w-screen h-screen flex justify-center items-center">loading</div>;
+  if (!article) return <Loader />;
 
   return (
     <div className="w-full flex justify-center">
@@ -44,9 +45,13 @@ const BlogPage = () => {
             <img
               src={`http://localhost:1337${article?.author?.avatar}`}
               alt="..."
-              className="max-w-10 rounded-full"
+              className="max-w-10 max-h-10 min-w-10 min-h-10 rounded-full border-1 border-gray-500 object-contain"
             />
-            <p className="text-sm font-light">{article?.author?.name}</p>
+            <Link to={`/authors/${article?.author?.documentId}`}>
+              <p className="text-sm font-light hover:underline">
+                {article?.author?.name}
+              </p>
+            </Link>
             <p className="text-sm font-light text-gray-500">
               {formatDate(article?.updatedAt)}
             </p>
@@ -81,12 +86,17 @@ const BlogPage = () => {
             <img
               src={`http://localhost:1337${article?.author?.avatar}`}
               alt="..."
-              className="max-w-16 rounded-full"
+              className="max-w-16 max-h-16 min-w-16 min-h-16 rounded-full border-1 border-gray-400 object-contain"
             />
             <div>
-              <p className="text-xl font-semibold">
-                Written By {article?.author?.name}
-              </p>
+              <Link to={`/authors/${article?.author?.documentId}`}>
+                <p className="text-xl font-semibold">
+                  Written By{" "}
+                  <span className="hover:underline">
+                    {article?.author?.name}
+                  </span>
+                </p>
+              </Link>
               <div className="flex items-center text-sm text-gray-500 gap-3">
                 <span>{article?.author?.email}</span>
               </div>

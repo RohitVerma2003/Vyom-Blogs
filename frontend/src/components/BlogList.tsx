@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Blog from "./Blog";
+import Loader from "./Loader";
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -18,6 +19,8 @@ const BlogList = () => {
   useEffect(() => {
     fetchBlogs();
   }, []);
+
+  if(!blogs) return <Loader/>
 
   return (
     <div className="w-5/7 my-10">

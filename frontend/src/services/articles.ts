@@ -9,6 +9,7 @@ export const getPartcularArticle = async (id: string) => {
     return data;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 
@@ -19,5 +20,27 @@ export const getCategories = async () => {
     return data;
   } catch (error) {
     console.log(error);
+    throw error;
+  }
+};
+
+export const getArticlesByTag = async (slug: string) => {
+  try {
+    const res = await axios.get(`http://localhost:1337/api/articles`, {
+      params: {
+        filters: {
+          category: {
+            slug: {
+              $eq: slug,
+            },
+          },
+        },
+        populate: "*",
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 };

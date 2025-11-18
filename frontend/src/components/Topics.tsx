@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCategories } from "../services/articles";
+import { Link } from "react-router-dom";
 
 const Topics = () => {
   const [topics, setTopics] = useState<any[]>([]);
@@ -19,12 +20,13 @@ const Topics = () => {
       </div>
       <div className="flex flex-wrap gap-3">
         {topics.map((topic, index) => (
-          <button
+          <Link
             key={index}
+            to={`/tags/${topic?.slug}`}
             className="text-sm font-light bg-gray-200 p-2 px-3 rounded-full cursor-pointer"
           >
             {topic.name}
-          </button>
+          </Link>
         ))}
       </div>
     </div>

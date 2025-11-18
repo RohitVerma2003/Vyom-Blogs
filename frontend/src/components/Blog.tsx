@@ -20,7 +20,9 @@ const Blog = ({ blog }: { blog: any }) => {
               alt="..."
               className="max-w-6 rounded-full object-cover"
             />
-            <p className="text-sm font-light">{blog?.author?.name}</p>
+            <Link to={`/authors/${blog?.author?.documentId}`}>
+              <p className="text-sm font-light hover:underline">{blog?.author?.name}</p>
+            </Link>
           </div>
         )}
         <Link to={`/articles/${blog?.documentId}`}>

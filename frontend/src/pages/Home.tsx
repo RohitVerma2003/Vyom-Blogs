@@ -42,7 +42,6 @@ const Home = () => {
 
     fetchData();
   }, []);
-  console.log(authors);
 
   return (
     <div className="max-w-screen flex">
