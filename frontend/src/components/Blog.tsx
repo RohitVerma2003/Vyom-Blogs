@@ -13,15 +13,17 @@ const Blog = ({ blog }: { blog: any }) => {
   return (
     <div className="flex items-center justify-between border-b-1 border-gray-200 py-5 gap-6">
       <div className="">
-        <div className="mb-4 flex items-center gap-3">
-          <img
-            src={`http://localhost:1337${blog?.author?.avatar}`}
-            alt="..."
-            className="max-w-6 rounded-full object-cover"
-          />
-          <p className="text-sm font-light">{blog?.author?.name}</p>
-        </div>
-        <Link to={`articles/${blog?.documentId}`}>
+        {blog?.author && (
+          <div className="mb-4 flex items-center gap-3">
+            <img
+              src={`http://localhost:1337${blog?.author?.avatar}`}
+              alt="..."
+              className="max-w-6 rounded-full object-cover"
+            />
+            <p className="text-sm font-light">{blog?.author?.name}</p>
+          </div>
+        )}
+        <Link to={`/articles/${blog?.documentId}`}>
           <p className="text-2xl font-bold mb-1">{blog.title}</p>
         </Link>
         <p className="text-gray-600">{blog.description}</p>
@@ -31,12 +33,14 @@ const Blog = ({ blog }: { blog: any }) => {
           </span>
         </div>
       </div>
-      <div className="max-w-40 border-1 border-gray-200">
-        <img
-          src={`http://localhost:1337${blog?.cover?.formats?.thumbnail?.url}`}
-          alt="..."
-        />
-      </div>
+      {blog.cover && (
+        <div className="max-w-40 border-1 border-gray-200">
+          <img
+            src={`http://localhost:1337${blog?.cover?.formats?.thumbnail?.url}`}
+            alt="..."
+          />
+        </div>
+      )}
     </div>
   );
 };

@@ -11,3 +11,16 @@ export const getAllAuthors = async () => {
     console.log(error);
   }
 };
+
+export const getAuthor = async (id: string) => {
+  try {
+    const res = await axios.get(
+      `http://localhost:1337/api/authors/${id}?populate=*`
+    );
+
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

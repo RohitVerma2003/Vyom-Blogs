@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import BlogList from "../components/BlogList";
 import Topics from "../components/Topics";
 import { getAllAuthors } from "../services/authors";
+import { Link } from "react-router-dom";
 
 const AuthorsCompo = ({ authors }: { authors: any }) => {
   return (
     <div className="w-4/5">
       <div className="font-base text-md mb-3 border-b-1 border-gray-200 pb-2">
-        the Authors
+        The Authors
       </div>
       {authors?.map((author: any) => (
         <div className="w-full flex justify-center mb-4" key={author?.id}>
@@ -18,7 +19,9 @@ const AuthorsCompo = ({ authors }: { authors: any }) => {
               className="min-w-10 min-h-10 max-w-10 max-h-10 rounded-full object-contain border-1 border-gray-400"
             />
             <div>
-              <p className="text-base font-bold">{author?.name}</p>
+              <Link to={`/authors/${author?.documentId}`}>
+                <p className="text-base font-bold">{author?.name}</p>
+              </Link>
               <p className="text-sm font-light">{author?.email}</p>
             </div>
           </div>

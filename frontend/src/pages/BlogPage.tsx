@@ -30,7 +30,7 @@ const BlogPage = () => {
 
   console.log(article);
 
-  if (!article) return <div>loading</div>;
+  if (!article) return <div className="w-screen h-screen flex justify-center items-center">loading</div>;
 
   return (
     <div className="w-full flex justify-center">
