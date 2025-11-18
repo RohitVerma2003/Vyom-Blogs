@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Blog = ({ blog }: { blog: any }) => {
   function formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -19,7 +21,9 @@ const Blog = ({ blog }: { blog: any }) => {
           />
           <p className="text-sm font-light">{blog?.author?.name}</p>
         </div>
-        <p className="text-2xl font-bold mb-1">{blog.title}</p>
+        <Link to={`articles/${blog?.documentId}`}>
+          <p className="text-2xl font-bold mb-1">{blog.title}</p>
+        </Link>
         <p className="text-gray-600">{blog.description}</p>
         <div className="mt-3">
           <span className="text-sm font-light text-gray-500">
